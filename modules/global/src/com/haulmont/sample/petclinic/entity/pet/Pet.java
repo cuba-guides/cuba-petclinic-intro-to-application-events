@@ -16,7 +16,6 @@ import javax.validation.constraints.NotNull;
 import javax.persistence.UniqueConstraint;
 import com.haulmont.chile.core.annotations.NamePattern;
 
-@PublishEntityChangedEvents
 @NamePattern("%s - %s|identificationNumber,name")
 @Table(name = "PETCLINIC_PET", uniqueConstraints = {
     @UniqueConstraint(name = "IDX_PETCLINIC_PET_ID_UNQ", columnNames = {"IDENTIFICATION_NUMBER", "DELETE_TS"})
