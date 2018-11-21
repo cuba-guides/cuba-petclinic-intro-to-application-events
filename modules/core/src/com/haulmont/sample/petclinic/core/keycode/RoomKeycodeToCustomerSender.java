@@ -43,12 +43,16 @@ public class RoomKeycodeToCustomerSender {
 
     private void tryToSendRoomKeycodeToPetsOwner(Visit visit) {
 
-        String phoneNumber = visit.getPet().getOwner().getTelephone();
-        if (visit.getPet().getOwner() != null && phoneNumber != null) {
 
-            String notificationText = createNotificationText(visit);
+        if (visit.getPet().getOwner() != null) {
 
-            mobilePhoneNotificationGateway.sendNotification(phoneNumber, notificationText);
+            String phoneNumber = visit.getPet().getOwner().getTelephone();
+
+            if (phoneNumber != null) {
+                String notificationText = createNotificationText(visit);
+
+                mobilePhoneNotificationGateway.sendNotification(phoneNumber, notificationText);
+            }
         }
 
     }

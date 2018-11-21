@@ -5,6 +5,7 @@ import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.Lookup;
 import com.haulmont.cuba.core.entity.annotation.LookupType;
 import com.haulmont.cuba.core.entity.annotation.PublishEntityChangedEvents;
+import com.haulmont.sample.petclinic.entity.clinic.Room;
 import com.haulmont.sample.petclinic.entity.pet.Pet;
 
 import javax.persistence.*;

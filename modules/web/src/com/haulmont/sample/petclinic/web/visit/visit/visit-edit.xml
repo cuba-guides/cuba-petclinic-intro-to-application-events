@@ -6,14 +6,22 @@
   <data>
     <instance id="visitCt"
       class="com.haulmont.sample.petclinic.entity.visit.Visit"
-      view="visit-with-pet">
+      view="visit-with-room-and-pet-and-owner">
       <loader/>
     </instance>
 
-    <collection id="petsCt" class="com.haulmont.sample.petclinic.entity.pet.Pet" view="_base">
+    <collection id="petsCt" class="com.haulmont.sample.petclinic.entity.pet.Pet" view="pet-with-owner-and-type">
       <loader>
         <query>
           select e from petclinic_Pet e
+        </query>
+      </loader>
+    </collection>
+
+    <collection id="roomsCt" class="com.haulmont.sample.petclinic.entity.clinic.Room" view="_base">
+      <loader>
+        <query>
+          select e from petclinic_Room e
         </query>
       </loader>
     </collection>
@@ -28,6 +36,10 @@
         <dateField property="visitDate"/>
         <textField colspan="5" property="description"/>
         <lookupPickerField property="pet" optionsContainer="petsCt"/>
+      </column>
+      <column width="250px">
+        <lookupPickerField property="room" optionsContainer="roomsCt"/>
+        <textField property="roomKeycode" />
       </column>
     </form>
 

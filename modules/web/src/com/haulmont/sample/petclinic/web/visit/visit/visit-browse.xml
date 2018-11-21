@@ -8,7 +8,7 @@
   <data readOnly="true">
     <collection id="visitsCt"
       class="com.haulmont.sample.petclinic.entity.visit.Visit"
-      view="visit-with-pet">
+      view="visit-with-room-and-pet-and-owner">
       <loader id="visitsLd">
         <query>
           <![CDATA[select e from petclinic_Visit e]]>
@@ -38,6 +38,8 @@
         <column id="visitDate"/>
         <column id="description"/>
         <column id="pet"/>
+        <column id="pet.owner"/>
+        <column id="room"/>
       </columns>
       <rowsCount/>
       <buttonsPanel id="buttonsPanel"

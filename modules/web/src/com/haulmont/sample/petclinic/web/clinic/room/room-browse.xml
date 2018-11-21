@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="roomsTable"
+        messagesPack="com.haulmont.sample.petclinic.web.clinic.room">
+    <data readOnly="true">
+        <collection id="roomsDc"
+                    class="com.haulmont.sample.petclinic.entity.clinic.Room"
+                    view="_local">
+            <loader id="roomsDl">
+                <query>
+                    <![CDATA[select e from petclinic_Room e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="roomsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="roomsTable"
+                dataLoader="roomsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="roomsTable"
+                    width="100%"
+                    dataContainer="roomsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="roomNumber"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="roomsTable.create"/>
+                <button id="editBtn" action="roomsTable.edit"/>
+                <button id="removeBtn" action="roomsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <fragment id="lookupActions"
+                  screen="lookupActions"/>
+    </layout>
+</window>

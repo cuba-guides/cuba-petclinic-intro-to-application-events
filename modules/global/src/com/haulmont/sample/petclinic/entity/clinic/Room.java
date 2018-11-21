@@ -1,4 +1,4 @@
-package com.haulmont.sample.petclinic.entity.visit;
+package com.haulmont.sample.petclinic.entity.clinic;
 
 import com.haulmont.sample.petclinic.entity.NamedEntity;
 

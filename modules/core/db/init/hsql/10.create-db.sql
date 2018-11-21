@@ -99,6 +99,8 @@ create table PETCLINIC_VISIT (
     VISIT_DATE date not null,
     DESCRIPTION varchar(4000),
     PET_ID varchar(36) not null,
+    ROOM_ID varchar(36),
+    ROOM_KEYCODE varchar(6),
     --
     primary key (ID)
 )^
@@ -110,3 +112,20 @@ create table PETCLINIC_VET_SPECIALTY_LINK (
     primary key (VET_ID, SPECIALTY_ID)
 )^
 -- end PETCLINIC_VET_SPECIALTY_LINK
+-- begin PETCLINIC_ROOM
+create table PETCLINIC_ROOM (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    NAME varchar(255),
+    --
+    ROOM_NUMBER varchar(255) not null,
+    --
+    primary key (ID)
+)^
+-- end PETCLINIC_ROOM
