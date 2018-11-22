@@ -26,7 +26,7 @@
       </loader>
     </collection>
   </data>
-
+  
   <dialogMode height="600"
     width="800"/>
 
@@ -39,7 +39,7 @@
       </column>
       <column width="250px">
         <lookupPickerField property="room" optionsContainer="roomsCt"/>
-        <textField property="roomKeycode" />
+        <textField id="roomKeycodeTextField" property="roomKeycode" editable="false" />
       </column>
     </form>
 
