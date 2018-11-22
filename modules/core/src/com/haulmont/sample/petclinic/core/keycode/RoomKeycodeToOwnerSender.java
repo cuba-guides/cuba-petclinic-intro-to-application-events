@@ -13,8 +13,8 @@ import org.springframework.transaction.event.TransactionalEventListener;
 import javax.inject.Inject;
 import java.util.UUID;
 
-@Component("petclinic_roomKeycodeToCustomerSender")
-public class RoomKeycodeToCustomerSender {
+@Component("petclinic_roomKeycodeToOwnerSender")
+public class RoomKeycodeToOwnerSender {
 
     @Inject
     private DataManager dataManager;
