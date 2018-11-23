@@ -101,6 +101,7 @@ create table PETCLINIC_VISIT (
     PET_ID varchar(36) not null,
     ROOM_ID varchar(36),
     ROOM_KEYCODE varchar(6),
+    STATUS varchar(50),
     --
     primary key (ID)
 )^

@@ -8,6 +8,7 @@ import com.haulmont.cuba.core.entity.annotation.PublishEntityChangedEvents;
 import com.haulmont.sample.petclinic.entity.clinic.Room;
 import com.haulmont.sample.petclinic.entity.pet.Pet;
 
+import javax.annotation.PostConstruct;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -37,8 +38,20 @@ public class Visit extends StandardEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ROOM_ID")
     protected Room room;
+
     @Column(name = "ROOM_KEYCODE", length = 6)
     protected String roomKeycode;
+
+    @Column(name = "STATUS")
+    protected String status;
+
+    public VisitStatus getStatus() {
+        return status == null ? null : VisitStatus.fromId(status);
+    }
+
+    public void setStatus(VisitStatus status) {
+        this.status = status == null ? null : status.getId();
+    }
 
     public Room getRoom() {
         return room;
@@ -80,5 +93,12 @@ public class Visit extends StandardEntity {
         return pet;
     }
 
+
+    @PostConstruct
+    protected void initStatus() {
+        if (getStatus() == null) {
+            setStatus(VisitStatus.BOOKED);
+        }
+    }
 
 }
