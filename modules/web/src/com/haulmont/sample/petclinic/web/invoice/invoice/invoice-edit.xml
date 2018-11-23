@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.haulmont.sample.petclinic.web.invoice.invoice">
+    <data>
+        <instance id="invoiceDc"
+                  class="com.haulmont.sample.petclinic.entity.invoice.Invoice"
+                  view="invoice-with-items-and-visit">
+            <loader/>
+            <collection id="itemsDc" property="items"/>
+        </instance>
+        <collection id="visitsDc" class="com.haulmont.sample.petclinic.entity.visit.Visit" view="_minimal">
+            <loader id="visitsLc">
+                <query>
+                    <![CDATA[select e from petclinic_Visit e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="invoiceDc">
+            <column width="250px">
+                <textField property="invoiceNumber"/>
+                <dateField property="invoiceDate"/>
+                <lookupPickerField property="visit" optionsContainer='visitsDc'/>
+            </column>
+        </form>
+        <groupBox id="itemsBox" caption="msg://com.haulmont.sample.petclinic.entity.invoice/Invoice.items">
+            <table id="itemsTable" dataContainer="itemsDc" width="100%" height="200px">
+                <columns>
+                    <column id="position" />
+                    <column id="text" />
+                    <column id="price" />
+                </columns>
+            </table>
+        </groupBox>
+        <fragment id="editActions"
+                  screen='editorActions'/>
+    </layout>
+</window>

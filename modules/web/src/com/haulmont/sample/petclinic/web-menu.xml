@@ -8,6 +8,7 @@
         <item screen="petclinic_Vet.browse"/>
         <separator/>
         <item screen="petclinic_Visit.browse"/>
+        <item screen="petclinic_Invoice.browse"/>
     </menu>
     <menu id="application-masterdata" insertBefore="administration">
         <item screen="petclinic_PetType.browse"/>
