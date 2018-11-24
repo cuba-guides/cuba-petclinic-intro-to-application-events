@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="invoicesTable"
+        messagesPack="com.haulmont.sample.petclinic.web.invoice.invoice">
+    <data readOnly="true">
+        <collection id="invoicesDc"
+                    class="com.haulmont.sample.petclinic.entity.invoice.Invoice"
+                    view="invoice-with-visit">
+            <loader id="invoicesDl">
+                <query>
+                    <![CDATA[select e from petclinic_Invoice e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="invoicesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="invoicesTable"
+                dataLoader="invoicesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="invoicesTable"
+                    width="100%"
+                    dataContainer="invoicesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="invoiceNumber"/>
+                <column id="invoiceDate"/>
+                <column id="visit"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="invoicesTable.create"/>
+                <button id="editBtn" action="invoicesTable.edit"/>
+                <button id="removeBtn" action="invoicesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <fragment id="lookupActions"
+                  screen="lookupActions"/>
+    </layout>
+</window>

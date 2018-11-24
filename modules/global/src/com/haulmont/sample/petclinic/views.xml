@@ -34,4 +34,13 @@
         <property name="owner"
                   view="_local"/>
     </view>
+    <view entity="petclinic_Invoice" name="invoice-with-visit" extends="_local">
+        <property name="visit"
+                  view="_minimal"/>
+    </view>
+    <view class="com.haulmont.sample.petclinic.entity.invoice.Invoice" name="invoice-with-items-and-visit"
+          extends="_local">
+        <property name="visit" view="_minimal"/>
+        <property name="items" view="_local"/>
+    </view>
 </views>

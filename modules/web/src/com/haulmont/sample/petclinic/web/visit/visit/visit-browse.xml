@@ -48,6 +48,9 @@
         <button id="createBtn" action="visitsTable.create"/>
         <button id="editBtn" action="visitsTable.edit"/>
         <button id="removeBtn" action="visitsTable.remove"/>
+        <button id="completeBtn"
+                caption="msg://complete"
+                icon="CHECK" />
       </buttonsPanel>
     </groupTable>
   </layout>
