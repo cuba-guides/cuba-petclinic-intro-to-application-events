@@ -1,6 +1,5 @@
 package com.haulmont.sample.petclinic.web.visit.visit;
 
-import com.haulmont.cuba.gui.components.Action;
 import com.haulmont.cuba.gui.components.TextField;
 import com.haulmont.cuba.gui.screen.*;
 import com.haulmont.sample.petclinic.entity.visit.Visit;
@@ -26,5 +25,5 @@ public class VisitEdit extends StandardEditor<Visit> {
         int rookKeycode = new Random().nextInt(999999);
         return String.format("%04d", rookKeycode);
     }
-    
+
 }

@@ -1,6 +1,6 @@
 package com.haulmont.sample.petclinic.web.visit.visit;
 
-import com.haulmont.cuba.core.app.LocalizedMessageService;
+import com.haulmont.cuba.core.global.Events;
 import com.haulmont.cuba.core.global.Messages;
 import com.haulmont.cuba.gui.Notifications;
 import com.haulmont.cuba.gui.components.Button;
@@ -10,6 +10,7 @@ import com.haulmont.cuba.gui.model.CollectionLoader;
 import com.haulmont.cuba.gui.screen.*;
 import com.haulmont.sample.petclinic.entity.visit.Visit;
 import com.haulmont.sample.petclinic.service.VisitStatusService;
+import org.springframework.context.event.EventListener;
 
 import javax.inject.Inject;
 
@@ -29,10 +30,16 @@ public class VisitBrowse extends StandardLookup<Visit> {
 
     @Inject
     private CollectionContainer<Visit> visitsCt;
+
     @Inject
     private CollectionLoader<Visit> visitsLd;
+
     @Inject
     private Messages messages;
+
+    @Inject
+    private Events events;
+
 
     @Subscribe("completeBtn")
     protected void onCompleteBtnClick(Button.ClickEvent event) {
@@ -40,11 +47,7 @@ public class VisitBrowse extends StandardLookup<Visit> {
         boolean visitWasCompleted = visitStatusService.completeVisit(visit);
 
         if (visitWasCompleted) {
-            notifications.create()
-                    .setCaption(messages.formatMessage(this.getClass(), "visitCompleteSuccessful"))
-                    .setType(Notifications.NotificationType.TRAY)
-                    .show();
-            loadData();
+            events.publish(new VisitCompletedClickedEvent(visit));
         }
         else {
             notifications.create()
@@ -52,5 +55,15 @@ public class VisitBrowse extends StandardLookup<Visit> {
                     .setType(Notifications.NotificationType.ERROR)
                     .show();
         }
+    }
+
+    @EventListener
+    protected void updateDataOnVisitCompleted(VisitCompletedClickedEvent event) {
+        loadData();
+
+        notifications.create()
+                .setCaption(messages.formatMessage(this.getClass(), "visitCompleteSuccessful"))
+                .setType(Notifications.NotificationType.TRAY)
+                .show();
     }
 }
