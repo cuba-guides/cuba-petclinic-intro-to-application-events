@@ -33,6 +33,10 @@
         <action id="edit" type="edit"
           openType="DIALOG"/>
         <action id="remove" type="remove"/>
+        <action id="completeVisit"
+                trackSelection="true"
+                caption="msg://complete"
+                icon="CHECK"/>
       </actions>
       <columns>
         <column id="status"/>
@@ -49,8 +53,7 @@
         <button id="editBtn" action="visitsTable.edit"/>
         <button id="removeBtn" action="visitsTable.remove"/>
         <button id="completeBtn"
-                caption="msg://complete"
-                icon="CHECK" />
+                action="visitsTable.completeVisit" />
       </buttonsPanel>
     </groupTable>
   </layout>

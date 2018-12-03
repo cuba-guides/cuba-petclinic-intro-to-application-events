@@ -3,6 +3,7 @@ package com.haulmont.sample.petclinic.web.visit.visit;
 import com.haulmont.cuba.core.global.Events;
 import com.haulmont.cuba.core.global.Messages;
 import com.haulmont.cuba.gui.Notifications;
+import com.haulmont.cuba.gui.components.Action;
 import com.haulmont.cuba.gui.components.Button;
 import com.haulmont.cuba.gui.components.GroupTable;
 import com.haulmont.cuba.gui.model.CollectionContainer;
@@ -41,8 +42,8 @@ public class VisitBrowse extends StandardLookup<Visit> {
     private Events events;
 
 
-    @Subscribe("completeBtn")
-    protected void onCompleteBtnClick(Button.ClickEvent event) {
+    @Subscribe("visitsTable.completeVisit")
+    protected void completeVisit(Action.ActionPerformedEvent event) {
         Visit visit = visitsTable.getSingleSelected();
         boolean visitWasCompleted = visitStatusService.completeVisit(visit);
 
@@ -56,6 +57,7 @@ public class VisitBrowse extends StandardLookup<Visit> {
                     .show();
         }
     }
+    
 
     @EventListener
     protected void updateDataOnVisitCompleted(VisitCompletedClickedEvent event) {
@@ -66,4 +68,5 @@ public class VisitBrowse extends StandardLookup<Visit> {
                 .setType(Notifications.NotificationType.TRAY)
                 .show();
     }
+
 }
