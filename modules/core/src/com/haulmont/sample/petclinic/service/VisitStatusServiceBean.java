@@ -40,7 +40,7 @@ public class VisitStatusServiceBean implements VisitStatusService {
     }
 
     private void notifyAboutVisitCompletion(Visit visit) {
-        events.publish(new VisitCompletedEvent(visit));
+        events.publish(new VisitCompletedEvent(this, visit));
     }
 
     private void markVisitAsComplete(Visit visit) {

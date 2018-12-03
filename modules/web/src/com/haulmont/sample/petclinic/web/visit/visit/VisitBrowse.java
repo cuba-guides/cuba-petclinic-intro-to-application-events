@@ -47,7 +47,7 @@ public class VisitBrowse extends StandardLookup<Visit> {
         boolean visitWasCompleted = visitStatusService.completeVisit(visit);
 
         if (visitWasCompleted) {
-            events.publish(new VisitCompletedClickedEvent(visit));
+            events.publish(new VisitCompletedClickedEvent(this));
         }
         else {
             notifications.create()

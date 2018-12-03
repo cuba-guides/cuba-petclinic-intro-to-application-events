@@ -23,7 +23,7 @@
     <layout expand="editActions" spacing="true">
         <form id="form" dataContainer="invoiceDc">
             <column width="250px">
-                <textField property="invoiceNumber"/>
+                <textField property="invoiceNumber" editable="false"/>
                 <dateField property="invoiceDate"/>
                 <lookupPickerField property="visit" optionsContainer='visitsDc'/>
             </column>

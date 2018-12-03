@@ -1,6 +1,7 @@
 package com.haulmont.sample.petclinic.entity.invoice;
 
 import com.haulmont.chile.core.annotations.Composition;
+import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.Lookup;
 import com.haulmont.cuba.core.entity.annotation.LookupType;
@@ -13,6 +14,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
 
+@NamePattern("%s|invoiceNumber")
 @Table(name = "PETCLINIC_INVOICE")
 @Entity(name = "petclinic_Invoice")
 public class Invoice extends StandardEntity {

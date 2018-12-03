@@ -32,10 +32,10 @@ public class InvoicingProcessInitializer implements ApplicationListener<VisitCom
 
     @Override
     public void onApplicationEvent(VisitCompletedEvent event) {
-        log.info("Payment process initialized: {}", event.getSource());
+        log.info("Payment process initialized: {}", event.getVisit());
 
         CommitContext commitContext = new CommitContext();
-        createInvoiceFor(event.getSource(), commitContext);
+        createInvoiceFor(event.getVisit(), commitContext);
 
         dataManager.commit(commitContext);
     }

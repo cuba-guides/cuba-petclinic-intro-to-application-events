@@ -5,12 +5,16 @@ import org.springframework.context.ApplicationEvent;
 
 public class VisitCompletedEvent extends ApplicationEvent {
 
-    public VisitCompletedEvent(Visit source) {
+    private final Visit visit;
+
+    public VisitCompletedEvent(Object source, Visit visit) {
+
         super(source);
+
+        this.visit = visit;
     }
 
-    @Override
-    public Visit getSource() {
-        return (Visit) super.getSource();
+    public Visit getVisit() {
+        return visit;
     }
 }
