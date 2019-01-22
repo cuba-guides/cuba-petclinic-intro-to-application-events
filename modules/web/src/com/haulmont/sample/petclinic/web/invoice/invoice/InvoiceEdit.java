@@ -10,6 +10,7 @@ import javax.inject.Inject;
 @UiController("petclinic_Invoice.edit")
 @UiDescriptor("invoice-edit.xml")
 @EditedEntityContainer("invoiceDc")
+@LoadDataBeforeShow
 public class InvoiceEdit extends StandardEditor<Invoice> {
 
     @Inject

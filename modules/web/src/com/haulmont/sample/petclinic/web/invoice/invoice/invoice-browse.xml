@@ -44,7 +44,9 @@
                 <button id="removeBtn" action="invoicesTable.remove"/>
             </buttonsPanel>
         </groupTable>
-        <fragment id="lookupActions"
-                  screen="lookupActions"/>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
     </layout>
 </window>

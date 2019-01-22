@@ -1,6 +1,7 @@
 package com.haulmont.sample.petclinic.web.visit.visit;
 
 import com.haulmont.cuba.gui.screen.*;
+import com.haulmont.cuba.gui.screen.*;
 import com.haulmont.cuba.gui.components.TextField;
 import com.haulmont.cuba.gui.screen.*;
 import com.haulmont.sample.petclinic.entity.visit.Visit;
@@ -11,7 +12,7 @@ import java.util.Random;
 
 @UiController("petclinic_Visit.edit")
 @UiDescriptor("visit-edit.xml")
-@EditedEntityContainer("visitCt")
+@EditedEntityContainer("visitDc")
 @LoadDataBeforeShow
 public class VisitEdit extends StandardEditor<Visit> {
 

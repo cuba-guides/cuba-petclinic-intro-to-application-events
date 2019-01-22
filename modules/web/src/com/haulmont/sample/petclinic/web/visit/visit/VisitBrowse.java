@@ -1,5 +1,6 @@
 package com.haulmont.sample.petclinic.web.visit.visit;
 
+import com.haulmont.cuba.gui.screen.*;
 import com.haulmont.cuba.core.global.Events;
 import com.haulmont.cuba.core.global.Messages;
 import com.haulmont.cuba.gui.Notifications;
