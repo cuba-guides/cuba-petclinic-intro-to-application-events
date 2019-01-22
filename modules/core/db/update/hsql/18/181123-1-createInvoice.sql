@@ -8,6 +8,7 @@ create table PETCLINIC_INVOICE (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
+    INVOICE_NUMBER varchar(255) not null,
     INVOICE_DATE date not null,
     VISIT_ID varchar(36) not null,
     --

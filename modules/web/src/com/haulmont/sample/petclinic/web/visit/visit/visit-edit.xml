@@ -26,26 +26,28 @@
       </loader>
     </collection>
   </data>
-  
+
   <dialogMode height="600"
     width="800"/>
 
-  <layout expand="editorActions" spacing="true">
-    <form id="fieldGroup" dataContainer="visitCt">
-      <column width="250px">
-        <dateField property="visitDate"/>
-        <textField colspan="5" property="description"/>
-        <lookupPickerField property="pet" optionsContainer="petsCt"/>
-        <lookupField property="status" />
-      </column>
-      <column width="250px">
-        <lookupPickerField property="room" optionsContainer="roomsCt"/>
-        <textField id="roomKeycodeTextField" property="roomKeycode" editable="false" />
-      </column>
-    </form>
+    <layout expand="editActions" spacing="true">
+        <form id="fieldGroup" dataContainer="visitCt">
+            <column width="250px">
+                <dateField property="visitDate"/>
+                <textField colspan="5" property="description"/>
+                <lookupPickerField property="pet" optionsContainer="petsCt"/>
+                <lookupField property="status" />
+            </column>
+            <column width="250px">
+                <lookupPickerField property="room" optionsContainer="roomsCt"/>
+                <textField id="roomKeycodeTextField" property="roomKeycode" editable="false" />
+            </column>
+        </form>
 
 
-    <fragment id="editorActions"
-      screen="editorActions"/>
-  </layout>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
 </window>

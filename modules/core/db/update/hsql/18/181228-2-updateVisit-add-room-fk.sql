@@ -1,0 +1,2 @@
+alter table PETCLINIC_VISIT add constraint FK_PETCLINIC_VISIT_ROOM foreign key (ROOM_ID) references PETCLINIC_ROOM(ID);
+create index IDX_PETCLINIC_VISIT_ROOM on PETCLINIC_VISIT (ROOM_ID);
