@@ -17,7 +17,7 @@ import java.util.Random;
 public class VisitEdit extends StandardEditor<Visit> {
 
     @Inject
-    TextField roomKeycodeTextField;
+    TextField<String> roomKeycodeTextField;
 
     @Subscribe
     protected void onInitEntity(InitEntityEvent<Visit> event) {
